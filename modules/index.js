@@ -1,9 +1,12 @@
-import store from "./store";
+const store = [
+  { name: "item1", checked: true },
+  { name: "item2", checked: false }
+];
 
 function initialLoad() {
   let initial = document.createElement("section");
   let initialItems = store.map(
-    item => ` <section class="item">
+    item => `<section class="item">
           <form>
             <label for="itemUpdater"></label>
             <input
@@ -18,6 +21,7 @@ function initialLoad() {
         </section>`
   );
   initial.setAttribute = ("id", "initial-items");
+  initialItems.join("&#44");
   initial.innerHTML = initialItems;
   document.body.appendChild(initial);
 }
