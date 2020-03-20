@@ -1,6 +1,6 @@
 var store = [
-  { name: "item1", checked: true },
-  { name: "item2", checked: false }
+  { name: "Get groceries", checked: true },
+  { name: "Survive pandemic", checked: false }
 ];
 
 export default store;
