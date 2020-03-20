@@ -2,7 +2,7 @@ import store from "./store";
 
 function initialLoad() {
   let initial = document.createElement("section");
-  let initialItems = store.store.map(
+  let initialItems = store.map(
     item => ` <section class="item">
           <form>
             <label for="itemUpdater"></label>
