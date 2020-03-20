@@ -3,8 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <main className="App">
+      <header>
+        <h2>React ToDo</h2>
+        <form onSubmit="{this.handleSubmit}">
+          <label htmlFor="Todoinput"></label>
+          <input
+            name="Todoinput"
+            className="Todoinput"
+            id="Todoinput"
+            type="text"
+          />
+          <button type="submit" name="Todo-submit">
+            Add Item
+          </button>
+        </form>
+      </header>
+      <p id="dom">hello</p>
+      <!-- <List items={this.state.items} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate}
+            handleChecked={this.handleChecked} /> -->
+    </main>
+  </body>
   <script src="index.js"></script>
 </html>
