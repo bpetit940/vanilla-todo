@@ -9,24 +9,17 @@
   <body>
     <main className="App">
       <header>
-        <h2>React ToDo</h2>
-        <form onSubmit="{this.handleSubmit}">
-          <label htmlFor="Todoinput"></label>
-          <input
-            name="Todoinput"
-            className="Todoinput"
-            id="Todoinput"
-            type="text"
-          />
-          <button type="submit" name="Todo-submit">
-            Add Item
-          </button>
-        </form>
+        <h2>VanillaJs ToDo</h2>
+        <!-- <label for="Todoinput"></label> -->
+        <input name="Todoinput" class="Todoinput" id="Todoinput" type="text" />
+        <button type="button" id="todoBtn">
+          Add Item
+        </button>
       </header>
-      <p id="dom">hello</p>
+
       <!-- <List items={this.state.items} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate}
             handleChecked={this.handleChecked} /> -->
     </main>
   </body>
-  <script src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </html>
