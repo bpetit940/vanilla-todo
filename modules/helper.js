@@ -13,39 +13,39 @@ class Model {
     ];
   }
 
-  addTodo(name) {
+  addTodo = name => {
     const newTodo = {
-      id: this.state.length > 0 ? this.state[this.state.length - 1].id + 1 : 1,
+      id: this.state.length > 0 ? this.state.length + 1 : 1,
       name: name,
       checked: false
     };
     this.state.push(newTodo);
-  }
+  };
 
-  updateTodo(id, newName) {
+  updateTodo = (id, newName) => {
     this.state = this.state.map(todo =>
       todo.id === id
         ? { id: todo.id, name: newName, checked: todo.check }
         : todo
     );
-  }
+  };
 
-  deleteTodo(id) {
+  deleteTodo = id => {
     this.state = this.state.filter(todo => todo.id !== id);
     this.onTodoListChanged(this.state);
-  }
+  };
 
-  toggleChecked(id) {
+  toggleChecked = id => {
     this.state = this.state.map(todo => {
       todo.id === id
         ? { id: todo.id, name: todo.name, checked: !todo.checked }
         : todo;
     });
-  }
+  };
 
-  bindTodoListChanged(fn) {
+  bindTodoListChanged = fn => {
     this.onTodoListChanged = fn;
-  }
+  };
 }
 
 class View {
@@ -53,7 +53,7 @@ class View {
     this.input = document.getElementById("Todoinput").value;
   }
 
-  makeNewTodo(item) {
+  makeNewTodo = item => {
     let newHtml = `
           <form>
             <label for="itemUpdater"></label>
@@ -65,41 +65,42 @@ class View {
               id='${item.id}'
             ></input>
           </form>
-          <button id='delete'>done</button>
-          <button id='done'>delete</button>`;
+          <button id='done'>done</button>
+          <button id='delete'>delete</button>`;
     let container = document.createElement("section");
     container.className = "item";
     container.innerHTML = newHtml;
     return container;
-  }
-  initialLoad(store) {
+  };
+  initialLoad = store => {
     for (const item of store) {
       let newTodoElement = this.makeNewTodo(item);
       document.getElementById("dome").appendChild(newTodoElement);
     }
-  }
+  };
 
-  bindAddTodo(handler) {
+  bindAddTodo = handler => {
+    let input = document.getElementById("Todoinput").value;
     document
       .getElementById("todoBtn")
-      .addEventListener("click", () => handler(this.input));
-  }
+      .addEventListener("click", () => handler(input));
+  };
 
-  bindDeleteTodo(handler) {
+  bindDeleteTodo = handler => {
     document
       .getElementById("delete")
       .addEventListener("click", event =>
         handler(event.target.parentElement.id)
       );
-  }
+  };
 
-  bindCheckedTodo(handler) {
+  bindCheckedTodo = handler => {
     document
       .getElementById("done")
       .addEventListener("click", event =>
         handler(event.target.parentElement.id)
       );
-  }
+  };
 }
 
 class Controller {
