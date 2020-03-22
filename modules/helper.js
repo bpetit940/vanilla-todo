@@ -65,8 +65,8 @@ class View {
               id='${item.id}'
             ></input>
           </form>
-          <button id='done'>done</button>
-          <button id='delete'>delete</button>`;
+          <button data-doneTodo='${item.id}'>done</button>
+          <button data-deleteTodo='${item.id}'>delete</button>`;
     let container = document.createElement("section");
     container.className = "item";
     container.innerHTML = newHtml;
